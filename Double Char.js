@@ -7,5 +7,4 @@ function doubleChar(str) {
     }
 
   return value;
-  
-}
+
