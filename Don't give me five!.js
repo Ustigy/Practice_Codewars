@@ -1,75 +1,28 @@
-function dontGiveMeFive(start, end)
-{
-  return 0;
-}
-
-
-
 let dontGiveMeFive = (start, end) => {
-  let result = 0;
-  
-  for (let i = 0; i < end; i++) {
-    if (i === 5) break;
-    result += i;
-  }
-  return result;
-}
-
-
-
-let dontGiveMeFive = (start, end) => {
-  let array = [];
+  console.log(start, end)
+  let row = '';
   
   for (let i = start; i < end; i++) {
-    array += i;
-    console.log(array);
-  }
+    row += i + ',';
+  } row = row + end;
+  row = row.split(',');
+  console.log(row);
    
-    
-  
-}
-
-
-
-
-
-
-let dontGiveMeFive = (start, end) => {
-  let array = '';
-  let result = '';
-  
-  for (let i = start; i < end; i++) {
-    array += i;
-    console.log(array);
+  let firstFive = 0;
+  for (let key of row) {
+    if (key % 5 !== 0 || key % 10 === 0) {
+      firstFive = Number(key) + 1;
+    } else {
+      break;
+    }
   }
-   
-  for (let j = 0; j < array.length; j++) {
-    console.log(array[j]);
-    if (array[j] === '5') continue;
-    result += array[j];
+  console.log(firstFive)
+
+  let quantityFive = 0;
+  for (let j = firstFive; j <= end; j += 10) {
+    quantityFive++;
   }
-  return result;
-  
-  
-  
-}
-
-
-
-
-let dontGiveMeFive = (start, end) => {
-  let array = '';
-  let result = '';
-  
-  for (let i = start; i <= end; i++) {
-    array += i;
-  }
-   
-  for (let j = 0; j < array.length; j++) {
-    if (array[j] === '5') continue;
-    result += array[j];
-  }
-
-  return result.length;
-     
+     console.log(quantityFive) 
+     console.log(row.length - quantityFive)
+  return (row.length - quantityFive)
 }
