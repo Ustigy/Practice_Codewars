@@ -1,17 +1,15 @@
 var uniqueInOrder=function(iterable){
   iterable = Array.from(iterable);
-  console.log(iterable)
-  let obj = {};
-  
+
   for (let i = 0; i < iterable.length; i++) {
-   
-    if (iterable[i] in obj && obj[iterable[i]] === obj[iterable[i+1]]) {
-      obj[iterable[i]]++;
-    } else {
-      obj[iterable[i]] = 1;
+    
+    let amountRepeat = 0;
+    for (let j = i + 1; iterable[i] === iterable[j]; j++) {
+      amountRepeat++;
     }
     
-  console.log(obj)
+    iterable.splice(i, amountRepeat);
   }
-  return obj;
+  
+  return iterable;
 }
