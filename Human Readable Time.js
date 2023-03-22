@@ -1,14 +1,12 @@
 function humanReadable (seconds) {
-  let date = new Date(seconds * 1000);
+  let h = Math.floor(seconds / 3600);
+  if(h < 10) h = '0' + h;
   
-  let hoursClock = date.getHours();
-  if (hoursClock < 10) hoursClock = '0' + hoursClock;
+  let m = Math.floor(seconds / 60 - h * 60);
+  if(m < 10) m = '0' + m;
   
-  let minutesClock = date.getMinutes();
-  if (minutesClock < 10) minutesClock = '0' + minutesClock;
-  
-  let secondsClock = date.getSeconds();
-  if (secondsClock < 10) secondsClock = '0' + secondsClock;
-  
-  return hoursClock + ':' + minutesClock + ':' + secondsClock;
+  let s = seconds - h * 3600 - m * 60;
+  if(s < 10) s = '0' + s;
+   
+  return h + ':' + m + ':' + s;
 }
