@@ -9,7 +9,7 @@ function accum(s) {
     }
     
     if (index < s.length - 1) sAccum += '-';
-
   }
+  
   return sAccum;
 }
