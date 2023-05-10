@@ -2,13 +2,15 @@
 
 function square_digits($num): int {
   $str = "".$num;
+  echo $str."\n";
+  $r='';
   
   for($i = 0; $i < strlen($str); $i++) {
-    $str[$i] = settype($str[$i], 'integer') * settype($str[$i], 'integer');
+    echo $str[$i].' '.$i;
+    $r .= intval($str[$i]) * intval($str[$i]);
   }
   
-  return settype($str, 'integer');
+  return $r;
 }
 
-  
 ?>
